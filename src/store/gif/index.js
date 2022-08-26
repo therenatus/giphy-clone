@@ -1,11 +1,9 @@
 export const GET_GIFS = 'GET_GIFS';
-export const GET_GIFS_LOADING = 'GET_GIFS_LOADING';
-export const GET_GIFS_ERROR = "GET_GIFS_LOADING";
+export const GET_GIFS_STATUS = 'GET_GIFS_STATUS';
 
 const initialState = {
     gifs: [],
-    loading: false,
-    error: ''
+    status: 'pending'
 };
 
 export const gifsReducer = (state = initialState, action) => {
@@ -16,16 +14,10 @@ export const gifsReducer = (state = initialState, action) => {
                 gifs: action.payload
             }
 
-        case GET_GIFS_LOADING: 
+        case GET_GIFS_STATUS: 
             return {
                 ...state,
-                loading: action.payload
-            }
-
-        case GET_GIFS_ERROR: 
-            return {
-                ...state,
-                error: action.payload
+                status: action.payload
             }
         default: {
             return {...state}

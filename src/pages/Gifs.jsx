@@ -1,6 +1,9 @@
-import React from 'react'
-import { Card } from './Card'
-import { CardSkeleton } from './Card/CardSkeleton'
+import React, { useEffect } from 'react';
+import { useDispatch, useSelector } from 'react-redux';
+import { getGifs } from '../store/gif/action/action';
+import { useParams } from 'react-router-dom';
+import { Card } from '../components/Card';
+import { CardSkeleton } from '../components/Card/CardSkeleton';
 
 const Loading = () => {
     return (
@@ -27,13 +30,23 @@ const Fulfilled = ({data}) => {
         </>
     )
 }
-export const ShortList = ({title, status, trending}) => {
+
+export const Gifs = () => {
+    const { subcategory } = useParams();
+    const dispatch = useDispatch();
+    const { gifs, status } = useSelector(state => state.gifsReducer);
+
+    useEffect(() => {
+        dispatch(getGifs(subcategory))
+    }, [])
+
+    
     return (
         <div className='mt-16'>
-            <h2 className='text-white text-2xl font-bold'>{title}</h2>
+            <h2 className='text-white text-2xl font-bold capitalize'>{subcategory}</h2>
             <div className='w-full grid grid-cols-4 gap-4 mt-7'>
                 {
-                    status === 'fulfilled' ? <Fulfilled data={trending} /> : (
+                    status === 'fulfilled' ? <Fulfilled data={gifs} /> : (
                         status === 'pending' ? <Loading /> : <></>
                     )
                 }
