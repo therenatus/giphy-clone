@@ -5,6 +5,7 @@ import { MainLayout } from '../layouts/MainLayout'
 import { CategoriesPage } from '../pages/CategoriesPage'
 import { Gifs } from '../pages/Gifs'
 import { Home } from '../pages/Home'
+import { Trending } from '../pages/Trending'
 
 export const App = () => {
 	return (
@@ -12,6 +13,7 @@ export const App = () => {
 			<Routes>
 				<Route path='/' element={<MainLayout />}>
 					<Route index element={<Home /> } />
+					<Route path='/trending' element={<Trending />} />
 					<Route path='/category/:subcategory' element={<Gifs />} />
 				</Route>
 				<Route path='/category' element={<CategoryLayout />}>

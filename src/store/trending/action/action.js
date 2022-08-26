@@ -7,10 +7,11 @@ const getTrendingStatus = (status) => ({
     payload: status
 });
 
-export const getTrending = (limit) => async(dispatch) => {
+export const getTrending = (limit=50) => async(dispatch) => {
     try {
         dispatch(getTrendingStatus('pending'));
-        const trending = await getTrandingApi(limit);    
+        const trending = await getTrandingApi(limit); 
+        console.log(trending)   
         dispatch(getTrendingStatus('fulfilled'));
         dispatch({
             type: GET_TRENDING,
