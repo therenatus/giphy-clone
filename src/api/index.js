@@ -15,3 +15,5 @@ export const getTrandingApi = (limit) => {
 export const getGifsApi = (query) => {
     return instance.get(`search?q=${query}&api_key=${process.env.REACT_APP_API_KEY}`)
 }
+
+export default instance;

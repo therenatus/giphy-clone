@@ -5,6 +5,7 @@ import { MainLayout } from '../layouts/MainLayout'
 import { CategoriesPage } from '../pages/CategoriesPage'
 import { Gifs } from '../pages/Gifs'
 import { Home } from '../pages/Home'
+import Random from '../pages/Random'
 import { Trending } from '../pages/Trending'
 
 export const App = () => {
@@ -15,6 +16,7 @@ export const App = () => {
 					<Route index element={<Home /> } />
 					<Route path='/trending' element={<Trending />} />
 					<Route path='/category/:subcategory' element={<Gifs />} />
+					<Route path='/random' element={<Random />} />
 				</Route>
 				<Route path='/category' element={<CategoryLayout />}>
 					<Route index element={<CategoriesPage /> } />
