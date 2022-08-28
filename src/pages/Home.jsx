@@ -13,7 +13,7 @@ export const Home = () => {
 
     return (
         <>
-            <ShortList title={'Trending'} {...data} />
+            <ShortList title={'trending'} {...data} />
         </>
     )
 }

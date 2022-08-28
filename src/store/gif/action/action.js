@@ -6,10 +6,10 @@ export const getGifsLoading = (status) => ({
     payload: status
 });
 
-export const getGifs = (query) => async(dispatch) => {
+export const getGifs = (query, offset) => async(dispatch) => {
     try {
         dispatch(getGifsLoading('pending'));
-        const gifs = await getGifsApi(query);
+        const gifs = await getGifsApi(query, offset);
         dispatch(getGifsLoading('fulfilled'));
         dispatch({
             type: GET_GIFS,
