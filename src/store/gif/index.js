@@ -9,9 +9,10 @@ const initialState = {
 export const gifsReducer = (state = initialState, action) => {
     switch(action.type){
         case GET_GIFS:
+            
             return {
                 ...state,
-                gifs: action.payload
+                gifs: state.gifs.concat(action.payload)
             }
 
         case GET_GIFS_STATUS: 
